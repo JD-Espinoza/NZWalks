@@ -47,7 +47,7 @@ namespace NZWalks.API.Controllers
         [HttpGet]
         [Route("{id:guid}")]
         [ActionName("GetRegionAsync")]
-        public async Task<IActionResult> GetAllRegionAsync(Guid id)
+        public async Task<IActionResult> GetRegionAsync(Guid id)
         {
             var region = await regionRepository.GetAsync(id);
 
@@ -93,7 +93,7 @@ namespace NZWalks.API.Controllers
                 Population = region.Population
             };
 
-            return CreatedAtAction(nameof(GetAllRegionAsync), new { id = regionDTO.Id }, regionDTO);
+            return CreatedAtAction(nameof(GetRegionAsync), new { id = regionDTO.Id }, regionDTO);
 
         }
 
